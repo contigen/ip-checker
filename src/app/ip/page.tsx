@@ -1,7 +1,8 @@
+import { getBaseUrl } from "../utils/baseurl"
+
 export default async function IP() {
-  const res = await fetch(`http://localhost:3000/api/ip`, {
-    body: `hello, other side`,
-  })
+  const URL = getBaseUrl()
+  const res = await fetch(`${URL}/api/ip`)
   const result = await res.json()
   return (
     <>
