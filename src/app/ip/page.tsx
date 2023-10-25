@@ -1,12 +1,12 @@
-import { getBaseUrl } from "../utils/baseurl"
+import { BASE_URL } from '@/base-url'
+import { Button } from '@nextui-org/react'
 
 export default async function IP() {
-  const URL = getBaseUrl()
-  const res = await fetch(`${URL}/api/ip`)
+  const res = await fetch(`${BASE_URL}/api/ip`)
   const result = await res.json()
   return (
     <>
-      <button>Check IP</button>
+      <Button>Check IP</Button>
       <div className='border rounded-3xl shadow p-4'>
         {result.clientIP === `` ? `No IP` : result.clientIP}
       </div>
