@@ -7,9 +7,7 @@ export default async function IP() {
   return (
     <>
       <Button>Check IP</Button>
-      <div className='border rounded-3xl shadow p-4'>
-        {result.clientIP === `` ? `No IP` : result.clientIP}
-      </div>
+      <h2>{result.clientIP === `` ? `No IP` : result.clientIP}</h2>
     </>
   )
 }
