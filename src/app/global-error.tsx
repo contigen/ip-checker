@@ -1,5 +1,7 @@
 'use client'
 
+import { Button } from '@nextui-org/react'
+
 export default function GlobalError({
   error,
   reset,
@@ -13,7 +15,7 @@ export default function GlobalError({
         <h2 style={{ fontFamily: `Samsung Sharp Sans` }}>
           Something went wrong!
         </h2>
-        <button onClick={() => reset()}>Try again</button>
+        <Button onClick={() => reset()}>Try again</Button>
       </body>
     </html>
   )
