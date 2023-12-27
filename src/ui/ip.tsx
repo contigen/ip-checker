@@ -1,8 +1,13 @@
 import { BASE_URL } from '@/base-url'
+import { headers } from 'next/headers'
 
 export async function IPComponent() {
-  const IP_ENDPOINT = `${BASE_URL}/api/ip`
+  const referer = headers().get(`referer`)
+  const IP_ENDPOINT = `${referer}api/ip`
   const res = await fetch(IP_ENDPOINT)
-  const { clientIP: IPAddress } = await res.json()
-  return <h2>{IPAddress ?? `No IP Address`}</h2>
+  const clonedResponse = res.clone()
+  const response = await clonedResponse.json()
+  return (
+    <h2>{response ? JSON.stringify(response, null, 2) : `No IP Address`}</h2>
+  )
 }
