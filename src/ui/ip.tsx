@@ -7,7 +7,7 @@ async function getIPAddress() {
   return IPAddress
 }
 
-export function IPComponent() {
-  const IPAddress = getIPAddress()
+export async function IPComponent() {
+  const IPAddress = await getIPAddress()
   return <h2>{IPAddress ?? `No IP Address`}</h2>
 }
