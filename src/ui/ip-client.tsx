@@ -7,14 +7,15 @@ import { Button } from '@nextui-org/button'
 export function IPClient({ children }: { children: React.ReactElement }) {
   const [loading, setLoading] = useState(false)
   return (
-    <Button
-      color='primary'
-      isDisabled={loading}
-      onClick={() => setLoading(true)}
-    >
-      {loading ? Spinner : `Check IP Address`}
-      {loading && children}
+    <div>
+      <Button
+        color='primary'
+        isDisabled={loading}
+        onClick={() => setLoading(true)}
+      >
+        {loading ? Spinner : `Check IP Address`}
+      </Button>
       {children}
-    </Button>
+    </div>
   )
 }
