@@ -1,4 +1,6 @@
 import { BASE_URL } from '@/base-url'
+import { IPComponent } from '@/ui/ip'
+import { IPClient } from '@/ui/ip-client'
 
 export default function Home() {
   return (
@@ -9,6 +11,11 @@ export default function Home() {
           {BASE_URL ?? `No base URL.`}
         </h1>
       </hgroup>
+      <div>
+        <IPClient>
+          <IPComponent />
+        </IPClient>
+      </div>
     </section>
   )
 }
