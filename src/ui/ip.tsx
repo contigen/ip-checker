@@ -1,8 +1,7 @@
-import { headers } from 'next/headers'
+import { BASE_URL } from '@/app/base-url'
 
 export async function IPComponent() {
-  const referer = headers().get(`referer`)
-  const IP_ENDPOINT = `${referer}api/ip`
+  const IP_ENDPOINT = `${BASE_URL}/api/ip`
   const res = await fetch(IP_ENDPOINT)
   const clonedResponse = res.clone()
   const response = await clonedResponse.text()
