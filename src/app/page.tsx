@@ -1,20 +1,21 @@
-import { BASE_URL } from '@/base-url'
+import { headers } from 'next/headers'
+import { Suspense } from 'react'
 import { IPComponent } from '@/ui/ip'
-import { IPClient } from '@/ui/ip-client'
+import { Spinner } from '@/spinner'
 
 export default function Home() {
+  const referer = headers().get(`referer`)
+
   return (
     <section>
       <hgroup>
         <h1>Check your IP address</h1>
-        <h1 style={{ fontFamily: `Samsung Sharp Sans` }}>
-          {BASE_URL ?? `No base URL.`}
-        </h1>
+        <h1 style={{ fontFamily: `Samsung Sharp Sans` }}>{referer}</h1>
       </hgroup>
       <div>
-        <IPClient>
+        <Suspense fallback={Spinner}>
           <IPComponent />
-        </IPClient>
+        </Suspense>
       </div>
     </section>
   )

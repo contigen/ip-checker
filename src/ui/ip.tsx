@@ -1,4 +1,3 @@
-import { BASE_URL } from '@/base-url'
 import { headers } from 'next/headers'
 
 export async function IPComponent() {
@@ -6,8 +5,10 @@ export async function IPComponent() {
   const IP_ENDPOINT = `${referer}api/ip`
   const res = await fetch(IP_ENDPOINT)
   const clonedResponse = res.clone()
-  const response = await clonedResponse.json()
+  const response = await clonedResponse.text()
   return (
-    <h2>{response ? JSON.stringify(response, null, 2) : `No IP Address`}</h2>
+    <div>
+      <h2>{response ? JSON.stringify(response, null, 2) : `No IP Address`}</h2>
+    </div>
   )
 }
