@@ -6,6 +6,7 @@ export async function GET(req: Request) {
   const clientIP = headers().get(`x-forwarded-for`)
   const { city, country, countryRegion, latitude, longitude, flag, region } =
     geolocation(req)
+  const ip = ipAddress(req)
   return NextResponse.json({
     city,
     country,
@@ -15,6 +16,6 @@ export async function GET(req: Request) {
     flag,
     region,
     clientIP,
-    ipAddress,
+    ip,
   })
 }
